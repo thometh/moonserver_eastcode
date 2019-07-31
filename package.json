@@ -4,7 +4,7 @@
   "keywords": [],
   "version": "7.3.2",
   "license": "Unlicense",
-  "author": "Lamassu (https://lamassu.is)",
+  "private": true,
   "dependencies": {
     "@fczbkk/uuid4": "^3.0.0",
     "axios": "^0.16.1",
@@ -61,10 +61,6 @@
     "winston": "^2.4.2",
     "ws": "^3.1.0",
     "xml-stream": "^0.4.5"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/lamassu/lamassu-server.git"
   },
   "bin": {
     "lamassu-server": "./bin/lamassu-server",

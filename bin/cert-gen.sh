@@ -1,6 +1,12 @@
 #!/usr/bin/env bash
 # This is for setting up cryptographic certificates for a development environment
 set -e
+export TERM=xterm
+
+echo "${POSTGRES_USER}"
+echo "${POSTGRES_DB}"
+echo "${POSTGRES_PASSWORD}"
+echo "${postgres}"
 
 DOMAIN=localhost
 [ ! -z "$1" ] && DOMAIN=$1
@@ -90,7 +96,7 @@ touch $OFAC_DATA_DIR/etags.json
 
 cat <<EOF > $CONFIG_DIR/lamassu.json
 {
-  "postgresql": "psql://postgres:$POSTGRES_PASS@localhost/lamassu",
+  "postgresql": "psql://postgres:postgres123@postgres/lamassu",
   "mnemonicPath": "$MNEMONIC_FILE",
   "caPath": "$CA_PATH",
   "certPath": "$SERVER_CERT_PATH",

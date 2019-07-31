@@ -1,0 +1,37 @@
+version: '3.1'
+
+services:
+  postgres:
+    image: postgres:alpine
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_DB: lamassu
+      POSTGRES_PASSWORD: postgres123
+    ports:
+      - 5432:5432
+    #volumes:
+    #  - db-data:/var/lib/postgresql/data
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 5431:8080
+
+  lamassu:
+    build: .
+    depends_on:
+      - postgres
+    links:
+      - postgres:${POSTGRES_HOST}
+    restart: on-failure
+    ports:
+      - 3030:3030
+      - 3000:3000
+    volumes:
+      - ./bin/cert-gen.sh:/node/lamassu-server/bin/cert-gen.sh
+
+volumes:
+  db-data:
+    driver: local
