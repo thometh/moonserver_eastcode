@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 set -e
+echo 'Running migrations'
+migrations.sh
 echo 'Running defaults' &&
 node bin/lamassu-apply-defaults &&
 echo 'Running registration' 

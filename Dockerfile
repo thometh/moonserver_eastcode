@@ -13,6 +13,4 @@ COPY . .
 
 RUN install.sh
 
-ENTRYPOINT ["migrations.sh"];
-
 CMD [ "run.sh" ]
