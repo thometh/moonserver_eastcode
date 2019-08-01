@@ -2,6 +2,8 @@ FROM node:8
 
 EXPOSE 3030
 EXPOSE 3000
+EXPOSE 8070
+EXPOSE 8071
 
 WORKDIR /node/lamassu-server
 

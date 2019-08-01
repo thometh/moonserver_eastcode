@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 set -u
-apt update -y &&
+apt-get update -y &&
 #apt upgrade -y &&
 echo 'Basic installations completed' &&
 #apt-get install build-essential -y &&

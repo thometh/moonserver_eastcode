@@ -29,8 +29,13 @@ services:
     ports:
       - 3030:3030
       - 3000:3000
+      - 8070:8070
+      - 8071:8071
     volumes:
       - ./bin/cert-gen.sh:/node/lamassu-server/bin/cert-gen.sh
+      - ./bin/lamassu-migrate:/node/lamassu-server/bin/lamassu-migrate
+      - ./lib:/node/lamassu-server/lib
+
 
 volumes:
   db-data:

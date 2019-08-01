@@ -19,6 +19,8 @@ LAMASSU_CA_PATH=$PWD/Lamassu_CA.pem
 MIGRATE_STATE_PATH=$CONFIG_DIR/.migrate
 POSTGRES_PASS=postgres123
 OFAC_DATA_DIR=$CONFIG_DIR/ofac
+ID_PHOTO_CARD_DIR=/opt/lamassu-server/idphotocard
+FRONTCAMERA_DIR=/opt/lamassu-server/frontcamera
 
 mkdir -p $CERT_DIR
 mkdir -p $CONFIG_DIR >> $LOG_FILE 2>&1
@@ -106,6 +108,8 @@ cat <<EOF > $CONFIG_DIR/lamassu.json
   "lamassuCaPath": "$LAMASSU_CA_PATH",
   "migrateStatePath": "$MIGRATE_STATE_PATH",
   "ofacDataDir": "$OFAC_DATA_DIR",
+  "idPhotoCardDir": "$ID_PHOTO_CARD_DIR",
+  "frontCameraDir": "$FRONTCAMERA_DIR",
   "ofacSources": [
     {
       "name": "sdn_advanced",
