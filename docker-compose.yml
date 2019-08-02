@@ -32,10 +32,12 @@ services:
       - 8070:8070
       - 8071:8071
     volumes:
-      - ./bin/cert-gen.sh:/node/lamassu-server/bin/cert-gen.sh
-      - ./bin/lamassu-migrate:/node/lamassu-server/bin/lamassu-migrate
+      - ./bin:/node/lamassu-server/bin
       - ./lib:/node/lamassu-server/lib
-
+      - ./public:/node/lamassu-server/public
+      - ./docker/install.sh:/usr/local/bin/install.sh
+      - ./docker/migrations.sh:/usr/local/bin/migrations.sh
+      - ./docker/run.sh:/usr/local/bin/run.sh
 
 volumes:
   db-data:
