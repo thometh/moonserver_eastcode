@@ -10,14 +10,14 @@ services:
       POSTGRES_PASSWORD: postgres123
     ports:
       - 5432:5432
-    #volumes:
-    #  - db-data:/var/lib/postgresql/data
+    # volumes:
+    #   - db-data:/var/lib/postgresql/data
 
-  adminer:
-    image: adminer
-    restart: always
-    ports:
-      - 5431:8080
+  # adminer:
+  #   image: adminer
+  #   restart: always
+  #   ports:
+  #     - 5431:8080
 
   lamassu:
     build: .
@@ -29,8 +29,10 @@ services:
     ports:
       - 3030:3030
       - 3000:3000
+      - 3060:3060
       - 8070:8070
       - 8071:8071
+      - 443:443
     volumes:
       - ./bin:/node/lamassu-server/bin
       - ./lib:/node/lamassu-server/lib
