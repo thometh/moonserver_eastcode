@@ -2,6 +2,13 @@
 # This is for setting up cryptographic certificates for a development environment
 set -e
 
+export TERM=xterm
+
+echo "${POSTGRES_USER}"
+echo "${POSTGRES_DB}"
+echo "${POSTGRES_PASSWORD}"
+echo "${postgres}"
+
 DOMAIN=localhost
 [ ! -z "$1" ] && DOMAIN=$1
 
@@ -13,6 +20,8 @@ LAMASSU_CA_PATH=$PWD/Lamassu_CA.pem
 MIGRATE_STATE_PATH=$CONFIG_DIR/.migrate
 POSTGRES_PASS=postgres123
 OFAC_DATA_DIR=$CONFIG_DIR/ofac
+ID_PHOTO_CARD_DIR=/opt/lamassu-server/idphotocard
+FRONTCAMERA_DIR=/opt/lamassu-server/frontcamera
 
 mkdir -p $CERT_DIR
 mkdir -p $CONFIG_DIR >> $LOG_FILE 2>&1
@@ -90,7 +99,7 @@ touch $OFAC_DATA_DIR/etags.json
 
 cat <<EOF > $CONFIG_DIR/lamassu.json
 {
-  "postgresql": "psql://postgres:$POSTGRES_PASS@localhost/lamassu",
+  "postgresql": "psql://postgres:postgres123@postgres/lamassu",
   "mnemonicPath": "$MNEMONIC_FILE",
   "caPath": "$CA_PATH",
   "certPath": "$SERVER_CERT_PATH",
@@ -100,6 +109,8 @@ cat <<EOF > $CONFIG_DIR/lamassu.json
   "lamassuCaPath": "$LAMASSU_CA_PATH",
   "migrateStatePath": "$MIGRATE_STATE_PATH",
   "ofacDataDir": "$OFAC_DATA_DIR",
+  "idPhotoCardDir": "$ID_PHOTO_CARD_DIR",
+  "frontCameraDir": "$FRONTCAMERA_DIR",
   "ofacSources": [
     {
       "name": "sdn_advanced",
