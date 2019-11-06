@@ -7,6 +7,7 @@
   "author": "Lamassu (https://lamassu.is)",
   "dependencies": {
     "@fczbkk/uuid4": "^3.0.0",
+    "truffle-contract": "3.0.6",
     "axios": "^0.16.1",
     "base-x": "^3.0.2",
     "bchaddrjs": "^0.3.0",
@@ -31,6 +32,7 @@
     "got": "^7.1.0",
     "helmet": "^3.8.1",
     "inquirer": "^5.2.0",
+    "jquery": "^3.4.1",
     "kraken-api": "github:DeX3/npm-kraken-api",
     "lnd-async": "^1.2.0",
     "lodash": "^4.17.10",
