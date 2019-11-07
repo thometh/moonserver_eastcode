@@ -8,6 +8,6 @@ echo 'Running registration'
 node bin/lamassu-register admin &&
 echo 'Basic installations run'
 
-node bin/lamassu-admin-server --dev &
-node bin/lamassu-server --mockSms
+./node_modules/.bin/nodemon bin/lamassu-admin-server --dev &
+./node_modules/.bin/nodemon bin/lamassu-server --mockSms
 

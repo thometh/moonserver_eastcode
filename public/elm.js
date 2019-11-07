@@ -34182,6 +34182,8 @@ var _user$project$Transactions$multiplier = function (code) {
 			return 1.0e8;
 		case 'DASH':
 			return 1.0e8;
+		case 'MOON':
+			return 1.0e18;
 		default:
 			return 1.0e8;
 	}
