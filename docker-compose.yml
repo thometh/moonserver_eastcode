@@ -1,0 +1,46 @@
+version: '3.1'
+
+services:
+  postgres:
+    image: postgres:alpine
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_DB: lamassu
+      POSTGRES_PASSWORD: postgres123
+    ports:
+      - 5432:5432
+    # volumes:
+    #   - db-data:/var/lib/postgresql/data
+
+  # adminer:
+  #   image: adminer
+  #   restart: always
+  #   ports:
+  #     - 5431:8080
+
+  lamassu:
+    build: .
+    depends_on:
+      - postgres
+    links:
+      - postgres:${POSTGRES_HOST}
+    restart: on-failure
+    ports:
+      - 3030:3030
+      - 3000:3000
+      - 3060:3060
+      - 8070:8070
+      - 8071:8071
+      - 443:443
+    volumes:
+      - ./bin:/node/lamassu-server/bin
+      - ./lib:/node/lamassu-server/lib
+      - ./public:/node/lamassu-server/public
+      - ./docker/install.sh:/usr/local/bin/install.sh
+      - ./docker/migrations.sh:/usr/local/bin/migrations.sh
+      - ./docker/run.sh:/usr/local/bin/run.sh
+
+volumes:
+  db-data:
+    driver: local
