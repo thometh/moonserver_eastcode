@@ -77,6 +77,8 @@ multiplier code =
 
         LTC ->
             1.0e8
+        MOON ->
+            1.0e18
 
 
 
@@ -96,6 +98,7 @@ cryptoCodeDisplay code =
             ZEC -> "ZEC"
             DASH -> "DASH"
             LTC -> "LTC"
+            MOON -> "MOON"
     in
         text txt
 

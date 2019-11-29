@@ -15,6 +15,7 @@ mapCryptoCode code =
         "ZEC" -> succeed ZEC
         "DASH" -> succeed DASH
         "LTC" -> succeed LTC
+        "MOON" -> succeed MOON
         _ -> fail ("No such cryptocurrency: " ++ code)
 
 cryptoCodeDecoder : Decoder CryptoCode

@@ -9,6 +9,7 @@ type CryptoCode
     | ZEC
     | DASH
     | LTC
+    | MOON
 
 
 type alias CashInTxRec =
